@@ -4,7 +4,8 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] placeholderPrefabs; // Array of placeholder objects to spawn
-    public Vector3 spawnPoint; // The point from which the objects will be spawned
+    private Vector3 spawnPoint; // The point from which the objects will be spawned
+    [SerializeField] GameObject Spawner;
     [SerializeField] private float spawnInterval; // Time interval between spawning objects
     [SerializeField] private MeshRenderer spawnMesh;
     private float spawnTimer; // Timer to keep track of when to spawn the next object
@@ -14,6 +15,7 @@ public class ObjectSpawner : MonoBehaviour
         // Start the timer
         spawnTimer = spawnInterval;
         spawnPoint = spawnMesh.bounds.size;
+        spawnPoint.z = Spawner.transform.position.z;
         //Debug.Log(spawnMesh.bounds.size.ToString());//spawnMesh.bounds.size.ToString()
     }
 
