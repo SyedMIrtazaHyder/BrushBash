@@ -1,11 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] placeholderPrefabs; // Array of placeholder objects to spawn
     private Vector3 spawnPoint; // The point from which the objects will be spawned
-    [SerializeField] GameObject Spawner;
     [SerializeField] private float spawnInterval; // Time interval between spawning objects
     [SerializeField] private MeshRenderer spawnMesh;
     private float spawnTimer; // Timer to keep track of when to spawn the next object
@@ -13,17 +13,22 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
         // Start the timer
+        StartCoroutine(WaitForPlacement());
         spawnTimer = spawnInterval;
-        spawnPoint = spawnMesh.bounds.size;
-        spawnPoint.z = Spawner.transform.position.z;
-        //Debug.Log(spawnMesh.bounds.size.ToString());//spawnMesh.bounds.size.ToString()
     }
 
+    private IEnumerator WaitForPlacement()
+    {
+        yield return new WaitUntil(() => transform.localScale.x < 100);//may work only for mobile games
+        Debug.Log("Placement Complete");
+        spawnPoint = transform.localScale;
+        spawnPoint.z = transform.position.z;
+
+    }
     void Update()
     {
         // Decrease the timer every frame
         spawnTimer -= Time.deltaTime;
-
         // Check if it's time to spawn a new object
         if (spawnTimer <= 0)
         {
@@ -51,6 +56,6 @@ public class ObjectSpawner : MonoBehaviour
         Vector3 spawnPosition = spawnPoint;
         spawnPosition.x = UnityEngine.Random.Range(-spawnPoint.x / 2, spawnPoint.x / 2);
         // Spawn the selected prefab at the specified spawn point
-        Instantiate(prefabToSpawn, spawnPosition, gameObject.transform.rotation);
+        Instantiate(prefabToSpawn, spawnPosition, transform.rotation);
     }
 }

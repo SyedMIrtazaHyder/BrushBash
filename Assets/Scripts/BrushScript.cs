@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrushScript : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-    [SerializeField] private JoystickController controller;
+    [SerializeField] private Joystick controller;
     private GameObject brush;
     private void Start()
     {
@@ -25,7 +25,6 @@ public class BrushScript : MonoBehaviour
         brush.transform.position = new Vector3(brush.transform.position.x + controller.GetInputDirection().x * movementSpeed,
             brush.transform.position.y,
             brush.transform.position.z + controller.GetInputDirection().y * movementSpeed);
-        Debug.Log(controller.GetInputDirection());
     }
 
     void OnCollisionEnter(Collision collision)

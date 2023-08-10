@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private RectTransform background;
     [SerializeField] private RectTransform handle;
@@ -40,7 +40,6 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
     private void MoveHandle()
     {
         handle.anchoredPosition = new Vector2(inputDirection.x * (background.sizeDelta.x / 3), inputDirection.y * (background.sizeDelta.y / 3));
-        Debug.Log(handle.anchoredPosition);
     }
 
     private void ClampInput()
