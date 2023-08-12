@@ -8,6 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     private Vector3 spawnPoint; // The point from which the objects will be spawned
     [SerializeField] private float spawnInterval; // Time interval between spawning objects
     [SerializeField] private MeshRenderer spawnMesh;
+    [SerializeField] private float divisor = 1f;
     private float spawnTimer; // Timer to keep track of when to spawn the next object
 
     void Start()
@@ -55,7 +56,11 @@ public class ObjectSpawner : MonoBehaviour
         //Getting a random location in bounds to spawn enemy
         Vector3 spawnPosition = spawnPoint;
         spawnPosition.x = UnityEngine.Random.Range(-spawnPoint.x / 2, spawnPoint.x / 2);
+        Vector3 originalScale = prefabToSpawn.transform.localScale;
+        prefabToSpawn.transform.localScale = new Vector3(transform.localScale.x * originalScale.x / divisor,
+                                                        transform.localScale.x * originalScale.y / divisor, transform.localScale.x * originalScale.z / divisor);
         // Spawn the selected prefab at the specified spawn point
         Instantiate(prefabToSpawn, spawnPosition, transform.rotation);
+        prefabToSpawn.transform.localScale = originalScale;
     }
 }
