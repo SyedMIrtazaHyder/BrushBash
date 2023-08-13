@@ -22,8 +22,9 @@ public class ObjectSpawner : MonoBehaviour
     {
         yield return new WaitUntil(() => transform.localScale.x < 100);//may work only for mobile games
         Debug.Log("Placement Complete");
-        spawnPoint = transform.localScale;
-        spawnPoint.z = transform.position.z;
+        spawnPoint = transform.position;//transform.localScale
+        spawnMesh = GetComponent<MeshRenderer>();
+        //spawnPoint.z = transform.position.z;
 
     }
     void Update()
@@ -55,12 +56,13 @@ public class ObjectSpawner : MonoBehaviour
 
         //Getting a random location in bounds to spawn enemy
         Vector3 spawnPosition = spawnPoint;
-        spawnPosition.x = UnityEngine.Random.Range(-spawnPoint.x / 2, spawnPoint.x / 2);
+        spawnPosition.x = UnityEngine.Random.Range(spawnMesh.bounds.min.x, spawnMesh.bounds.max.x);
         Vector3 originalScale = prefabToSpawn.transform.localScale;
         prefabToSpawn.transform.localScale = new Vector3(transform.localScale.x * originalScale.x / divisor,
                                                         transform.localScale.x * originalScale.y / divisor, transform.localScale.x * originalScale.z / divisor);
         // Spawn the selected prefab at the specified spawn point
         Instantiate(prefabToSpawn, spawnPosition, transform.rotation);
+        //Debug.Log("Position: " + spawnPosition.ToString() + " when x is ");
         prefabToSpawn.transform.localScale = originalScale;
     }
 }

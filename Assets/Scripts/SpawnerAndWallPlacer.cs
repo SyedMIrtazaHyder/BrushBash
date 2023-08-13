@@ -36,9 +36,9 @@ public class SpawnerAndWallPlacer : MonoBehaviour
         else
         {
             if (isTop)
-                transform.position = new Vector3(terrainBounds.center.x, terrainBounds.center.y, terrainBounds.max.z + transform.localScale.z / 2);
+                transform.position = new Vector3(terrainBounds.center.x, terrainBounds.center.y, terrainBounds.max.z + transform.localScale.z);
             else
-                transform.position = new Vector3(terrainBounds.center.x, terrainBounds.center.y, terrainBounds.min.z - transform.localScale.z / 2);
+                transform.position = new Vector3(terrainBounds.center.x, terrainBounds.center.y + transform.position.y, terrainBounds.min.z - transform.localScale.z);
             transform.localScale = new Vector3(terrainMesh.transform.localScale.x * multiplier, transform.localScale.y, terrainMesh.transform.localScale.z);
         }
     }

@@ -7,6 +7,8 @@ TagManager:
   - Tower
   - Enemy
   - Brush
+  - Wall
+  - BigEnemy
   layers:
   - Default
   - TransparentFX

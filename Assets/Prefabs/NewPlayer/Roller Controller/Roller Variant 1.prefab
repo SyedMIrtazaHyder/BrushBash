@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eee4cdd9e2623a046bf99f03db9463b6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eee4cdd9e2623a046bf99f03db9463b6, type: 3}
       propertyPath: m_TagString
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc0d807de5d13747b40953e34db20ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 10
   jumpHeight: 1
   gravityValue: -9.81
 --- !u!143 &3151903452842963013
@@ -271,4 +271,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainMesh: {fileID: 0}
-  divisor: 0
+  divisor: 10
