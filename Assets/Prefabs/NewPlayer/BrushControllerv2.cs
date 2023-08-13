@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BrushControllerv2 : MonoBehaviour
@@ -13,6 +11,8 @@ public class BrushControllerv2 : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private int killRequirement = 10;
+    private int killed;
 
     private void Awake()
     {
@@ -58,6 +58,13 @@ public class BrushControllerv2 : MonoBehaviour
         {
             // Destroy the enemy GameObject
             Destroy(collision.gameObject);
+            killed++;
+        }
+
+        if (killed == killRequirement)
+        {
+            Debug.Log("Going to Next Level");
+            GetComponent<GameManager>().LoadNextLevel();
         }
     }
 }
