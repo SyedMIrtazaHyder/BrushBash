@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 public class BrushControllerv2 : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class BrushControllerv2 : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private int killRequirement = 10;
+    private Vector3 move;
     private int killed;
 
+    //helper matrix
+    Matrix4x4 matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
     private void Awake()
     {
         player = new Player();
@@ -39,8 +42,10 @@ public class BrushControllerv2 : MonoBehaviour
         }
 
         Vector2 movement = player.Move.Movement.ReadValue<Vector2>();
-        Vector3 move = new Vector3(movement.x, 0f, movement.y);
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        //For top Down
+        
+        move = new Vector3(movement.x, 0f, movement.y);
+        controller.Move(move * Time.deltaTime * playerSpeed); 
 
         if (move != Vector3.zero)
         {

@@ -9,6 +9,7 @@ TagManager:
   - Brush
   - Wall
   - BigEnemy
+  - Floor
   layers:
   - Default
   - TransparentFX

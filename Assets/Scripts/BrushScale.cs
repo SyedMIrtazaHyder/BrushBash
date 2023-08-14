@@ -21,7 +21,7 @@ public class BrushScale : MonoBehaviour
 
             // Resize this object's local scale to match the reference object's size
             transform.localScale = new Vector3(referenceBounds.size.x * transform.localScale.x / divisor, referenceBounds.size.x * transform.localScale.y / divisor, referenceBounds.size.x * transform.localScale.z / divisor);
-            Debug.Log(transform.localScale.ToString());
+            //Debug.Log(transform.localScale.ToString());
         }
         else
         {
