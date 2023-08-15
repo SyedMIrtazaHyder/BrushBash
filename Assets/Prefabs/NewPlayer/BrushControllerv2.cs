@@ -77,7 +77,7 @@ public class BrushControllerv2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // Destroy the enemy GameObject
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             killed++;
         }
 

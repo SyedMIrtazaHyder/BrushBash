@@ -9,7 +9,6 @@ public class BouncinessScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision Detected");
        if (collision.collider.CompareTag("Floor"))
         {
             _animator.SetTrigger("OnTerrainCollision");
