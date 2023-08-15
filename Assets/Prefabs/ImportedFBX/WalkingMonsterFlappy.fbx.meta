@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c885a4ac6e9b8f64e847ad34578f5c49
+guid: 01e899970335f334397356f539e92126
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: RedWalkAnimation
+      name: SquishyWalk
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
