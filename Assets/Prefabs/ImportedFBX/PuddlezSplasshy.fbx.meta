@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 27cba28450ef83f478f0992419cd404a
+guid: 398468c8b1f0694458ca1b0eb21ddae5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: SnakeWiggle
+      name: SplasshyPuddlez
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

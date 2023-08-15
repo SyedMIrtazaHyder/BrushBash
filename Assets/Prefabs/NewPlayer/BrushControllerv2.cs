@@ -12,11 +12,15 @@ public class BrushControllerv2 : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private int killRequirement = 10;
+    [SerializeField] private bool isTop = true;
+    [SerializeField] private float turnSpeed = 2f;
     private Vector3 move;
     private int killed;
 
     //helper matrix
-    Matrix4x4 matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+    Matrix4x4 matrixRot = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+    Matrix4x4 matrixMove = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
+
     private void Awake()
     {
         player = new Player();
@@ -42,10 +46,21 @@ public class BrushControllerv2 : MonoBehaviour
         }
 
         Vector2 movement = player.Move.Movement.ReadValue<Vector2>();
-        //For top Down
-        
         move = new Vector3(movement.x, 0f, movement.y);
-        controller.Move(move * Time.deltaTime * playerSpeed); 
+        //For top Down
+        if (isTop) { 
+            controller.Move(playerSpeed * Time.deltaTime * move);
+        }
+        //For isometric
+        else
+        {
+            Vector3 skewedInput = matrixMove.MultiplyPoint3x4(move);
+            Quaternion rot = Quaternion.LookRotation(matrixRot.MultiplyPoint3x4(move), Vector3.up);
+
+            controller.Move(skewedInput * Time.deltaTime * playerSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+            
+        }
 
         if (move != Vector3.zero)
         {

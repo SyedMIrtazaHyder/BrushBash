@@ -10,7 +10,8 @@ public class MiniEnemies : MonoBehaviour
             int enemyNo = Random.Range(1, 4);
             while (enemyNo != 0)
             {
-                Instantiate(miniEnemy, transform.position, transform.rotation);
+                GameObject gb = Instantiate(miniEnemy, transform.position, transform.rotation);
+                gb.transform.localScale = transform.localScale * 0.5f;
                 enemyNo--;
             }
         }
