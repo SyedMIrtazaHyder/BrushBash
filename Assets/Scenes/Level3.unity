@@ -854,16 +854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeholderPrefabs:
   - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
-  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
-  - {fileID: 4482005486105270008, guid: feeda192d34ab4c49a69fa0b611098d1, type: 3}
-  - {fileID: 4482005486105270008, guid: feeda192d34ab4c49a69fa0b611098d1, type: 3}
-  - {fileID: 4482005486105270008, guid: feeda192d34ab4c49a69fa0b611098d1, type: 3}
-  - {fileID: 4482005486105270008, guid: feeda192d34ab4c49a69fa0b611098d1, type: 3}
-  - {fileID: 4482005486105270008, guid: feeda192d34ab4c49a69fa0b611098d1, type: 3}
-  - {fileID: 2271217716794446679, guid: 7538203e3fff91f49936092e4d626297, type: 3}
-  - {fileID: 2271217716794446679, guid: 7538203e3fff91f49936092e4d626297, type: 3}
-  - {fileID: 2271217716794446679, guid: 7538203e3fff91f49936092e4d626297, type: 3}
-  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
   spawnInterval: 2
   spawnMesh: {fileID: 1440215728}
   divisor: 5

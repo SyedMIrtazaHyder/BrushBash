@@ -8,6 +8,7 @@ public class WallCollisionDetector : MonoBehaviour
         if (collision.collider.CompareTag("Enemy"))
         {
             Vector3 collisionPoint = collision.GetContact(0).point;
+            collisionPoint.z -= 0.2f;
             Vector3 originalSize =  splash.transform.localScale;
             GameObject gb = Instantiate(splash, collisionPoint, Quaternion.Euler(0, 180, 0));
             gb.transform.localScale = new Vector3( originalSize.x * 3,
