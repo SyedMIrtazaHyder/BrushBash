@@ -22,6 +22,8 @@ public class EnemyDeath : MonoBehaviour
 
     private IEnumerator WaitForAnimation()
     {
+        AudioManager.instance.Play("jellycrush");
+
         yield return new WaitForSeconds(1.2f);//may work only for mobile games
         Debug.Log("Killing Enemy");
         Destroy(gameObject);

@@ -20,6 +20,7 @@ public class WallCollisionDetector : MonoBehaviour
             gb.transform.localScale = new Vector3( originalSize.x * 3,
                                                    originalSize.y * 3,
                                                    1f);
+            AudioManager.instance.Play("wallhit");
             //Debug.Log(collision.gameObject.transform.localScale.ToString());
             Destroy(collision.gameObject);
         }

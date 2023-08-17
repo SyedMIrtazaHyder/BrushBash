@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 398468c8b1f0694458ca1b0eb21ddae5
+guid: a170f754a4cec3a4081c7d3076c02c87
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: SplasshyPuddlez
+      name: PuddlezSmoothSquish
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
