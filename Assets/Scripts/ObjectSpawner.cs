@@ -1,10 +1,11 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] placeholderPrefabs; // Array of placeholder objects to spawn
+    [SerializeField] private Material[] placeholderMaterials; // Array of placeholder materials to apply to enemy
     private Vector3 spawnPoint; // The point from which the objects will be spawned
     [SerializeField] private float spawnInterval; // Time interval between spawning objects
     [SerializeField] private MeshRenderer spawnMesh;
@@ -54,12 +55,29 @@ public class ObjectSpawner : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, placeholderPrefabs.Length);
         GameObject prefabToSpawn = placeholderPrefabs[randomIndex];
 
+        int randomMatIndex = UnityEngine.Random.Range(0, placeholderMaterials.Length);
+        Material MaterialToAdjust = placeholderMaterials[randomMatIndex];
+
         //Getting a random location in bounds to spawn enemy
         Vector3 spawnPosition = spawnPoint;
         spawnPosition.x = UnityEngine.Random.Range(spawnMesh.bounds.min.x, spawnMesh.bounds.max.x);
         // Spawn the selected prefab at the specified spawn point
         GameObject spawn = Instantiate(prefabToSpawn, spawnPosition, transform.rotation);
+        MeshRenderer[] children = spawn.GetComponentsInChildren<MeshRenderer>();
+        SkinnedMeshRenderer[] children2 = spawn.GetComponentsInChildren<SkinnedMeshRenderer>();
         //Debug.Log("Position: " + spawnPosition.ToString() + " when x is ");
+        foreach (MeshRenderer mr in children)
+        {
+            mr.material = MaterialToAdjust;
+        }
+
+        foreach (SkinnedMeshRenderer mr in children2)
+        {
+            mr.material = MaterialToAdjust;
+            
+            if(mr.materials.Length > 1)
+                mr.SetMaterials(new List<Material> { MaterialToAdjust, MaterialToAdjust });
+        }
         Vector3 originalScale = prefabToSpawn.transform.localScale;
         spawn.transform.localScale = new Vector3(   transform.localScale.x * originalScale.x / divisor,
                                                     transform.localScale.x * originalScale.y / divisor,

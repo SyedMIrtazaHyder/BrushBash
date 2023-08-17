@@ -208,13 +208,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16431897}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
   m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
 --- !u!1 &285115165
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeholderPrefabs:
-  - {fileID: 1428288110196706686, guid: fdb1a3d454ca88c47b5dc41054dd88c5, type: 3}
   - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
   spawnInterval: 2
   spawnMesh: {fileID: 492598476}
@@ -722,7 +721,7 @@ GameObject:
   - component: {fileID: 1185910467}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -747,7 +746,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a351e09c5aaad524eb77bf4d0bacbaef, type: 2}
+  - {fileID: 2100000, guid: 7e120cb2f791e6b45a928bf95bff1aef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

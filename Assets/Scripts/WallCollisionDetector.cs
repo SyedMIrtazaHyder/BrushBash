@@ -11,6 +11,12 @@ public class WallCollisionDetector : MonoBehaviour
             collisionPoint.z -= 0.2f;
             Vector3 originalSize =  splash.transform.localScale;
             GameObject gb = Instantiate(splash, collisionPoint, Quaternion.Euler(0, 180, 0));
+
+            if (collision.gameObject.GetComponentsInChildren<MeshRenderer>().Length > 0)
+                gb.GetComponent<MeshRenderer>().material = collision.gameObject.GetComponentInChildren<MeshRenderer>().material;
+            else
+                gb.GetComponent<MeshRenderer>().material = collision.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+
             gb.transform.localScale = new Vector3( originalSize.x * 3,
                                                    originalSize.y * 3,
                                                    1f);

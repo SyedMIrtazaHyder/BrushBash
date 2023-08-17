@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 1401184778}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -723,7 +723,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a351e09c5aaad524eb77bf4d0bacbaef, type: 2}
+  - {fileID: 2100000, guid: 7e120cb2f791e6b45a928bf95bff1aef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
