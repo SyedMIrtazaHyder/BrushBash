@@ -10,6 +10,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float spawnInterval; // Time interval between spawning objects
     [SerializeField] private MeshRenderer spawnMesh;
     [SerializeField] private float divisor = 1f;
+    [SerializeField] private float enemySpeed = 1f;
     private float spawnTimer; // Timer to keep track of when to spawn the next object
 
     void Start()
@@ -63,21 +64,12 @@ public class ObjectSpawner : MonoBehaviour
         spawnPosition.x = UnityEngine.Random.Range(spawnMesh.bounds.min.x, spawnMesh.bounds.max.x);
         // Spawn the selected prefab at the specified spawn point
         GameObject spawn = Instantiate(prefabToSpawn, spawnPosition, transform.rotation);
-        MeshRenderer[] children = spawn.GetComponentsInChildren<MeshRenderer>();
-        SkinnedMeshRenderer[] children2 = spawn.GetComponentsInChildren<SkinnedMeshRenderer>();
+        spawn.GetComponent<ConstantForce>().force *= enemySpeed;
+        Renderer[] children = spawn.GetComponentsInChildren<Renderer>();
         //Debug.Log("Position: " + spawnPosition.ToString() + " when x is ");
-        foreach (MeshRenderer mr in children)
-        {
+        foreach (Renderer mr in children)
             mr.material = MaterialToAdjust;
-        }
 
-        foreach (SkinnedMeshRenderer mr in children2)
-        {
-            mr.material = MaterialToAdjust;
-            
-            if(mr.materials.Length > 1)
-                mr.SetMaterials(new List<Material> { MaterialToAdjust, MaterialToAdjust });
-        }
         Vector3 originalScale = prefabToSpawn.transform.localScale;
         spawn.transform.localScale = new Vector3(   transform.localScale.x * originalScale.x / divisor,
                                                     transform.localScale.x * originalScale.y / divisor,

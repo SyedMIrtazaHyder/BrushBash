@@ -1,8 +1,22 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WallCollisionDetector : MonoBehaviour
 {
+    public int maxhealth = 100;
+    public int health;
+
     [SerializeField] private GameObject splash;
+    [SerializeField] private int maxHits = 5;
+    private int hitsTaken;
+
+    public HealthBar healthbar;
+    private void Start()
+    {
+        health = maxhealth;
+        healthbar.setmaxhealth(maxhealth);
+        hitsTaken = 0;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Enemy"))
@@ -23,6 +37,9 @@ public class WallCollisionDetector : MonoBehaviour
             AudioManager.instance.Play("wallhit");
             //Debug.Log(collision.gameObject.transform.localScale.ToString());
             Destroy(collision.gameObject);
+            health -= 20;
+            healthbar.sethealth(health);
+
         }
     }
 }
