@@ -12,9 +12,9 @@ public class MiniEnemies : MonoBehaviour
             {
                 GameObject gb = Instantiate(miniEnemy, transform.position, transform.rotation);
                 gb.transform.localScale = transform.localScale * 0.5f;
-                MeshRenderer[] mr = gb.GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer m in mr)
-                    m.material = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+                Renderer[] mr = gb.GetComponentsInChildren<Renderer>();
+                foreach (Renderer m in mr)
+                    m.material = gameObject.GetComponentInChildren<Renderer>().material;
                 enemyNo--;
             }
         }

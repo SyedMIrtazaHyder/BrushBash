@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
+    private bool gameHasEnded = false;
     //public GameObject CompleteLevelUI;
-    public static int tempIndex;
+    private static int currentScene = 1;
     public void EndGame()
     {
         //Debug.Log("Game Over");
@@ -18,22 +18,23 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        //CompleteLevelUI.SetActive(true);
+        SceneManager.LoadScene("Next Level");
     }
     public void Restart()
     {
-        tempIndex = SceneManager.GetActiveScene().buildIndex;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("Restart"); //name of the scene to load
     }
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1)%3);
+        currentScene += 1;
+        SceneManager.LoadScene(currentScene%11);
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(tempIndex);
+        SceneManager.LoadScene(currentScene);
     }
 
 }

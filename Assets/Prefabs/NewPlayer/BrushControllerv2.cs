@@ -14,6 +14,8 @@ public class BrushControllerv2 : MonoBehaviour
     [SerializeField] private int killRequirement = 10;
     [SerializeField] private bool isTop = true;
     [SerializeField] private float turnSpeed = 2f;
+    [SerializeField] private GameObject skidMark;
+    [SerializeField] private float skidMarkMultiplier;
     private Vector3 move;
     private int killed;
 
@@ -76,15 +78,18 @@ public class BrushControllerv2 : MonoBehaviour
         // Check if the collision is with an object tagged as "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Destroy the enemy GameObject
-            //Destroy(collision.gameObject);
+            Vector3 pointOfContact = collision.GetContact(0).point;
+            pointOfContact.Set(pointOfContact.x, 0.05f, pointOfContact.z);
+            GameObject skid = Instantiate(skidMark, pointOfContact, Quaternion.Euler(-90f, transform.rotation.eulerAngles.y + 270, 0f));
+            skid.transform.localScale = transform.localScale * skidMarkMultiplier;
+            skid.GetComponent<Renderer>().material = collision.gameObject.GetComponentInChildren<Renderer>().material;
             killed++;
         }
 
         if (killed == killRequirement)
         {
             Debug.Log("Going to Next Level");
-            GetComponent<GameManager>().LoadNextLevel();
+            GetComponent<GameManager>().LevelComplete();
         }
     }
 }
