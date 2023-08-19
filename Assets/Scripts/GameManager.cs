@@ -37,4 +37,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentScene);
     }
 
+    public int GetSceneNo()
+    {
+        return currentScene;
+    }
 }
