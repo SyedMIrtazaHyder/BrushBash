@@ -3,18 +3,16 @@ using UnityEngine;
 
 public class WallCollisionDetector : MonoBehaviour
 {
-    public int maxhealth = 100;
-    public int health;
-
     [SerializeField] private GameObject splash;
     [SerializeField] private int maxHits = 5;
     private int hitsTaken;
-
-    public HealthBar healthbar;
+    public int maxhealth = 100;
+    public int health;
+    public HealthBar healthBar;
     private void Start()
     {
         health = maxhealth;
-        healthbar.setmaxhealth(maxhealth);
+        healthBar.setmaxhealth(maxhealth);
         hitsTaken = 0;
     }
     private void OnCollisionEnter(Collision collision)
@@ -36,9 +34,9 @@ public class WallCollisionDetector : MonoBehaviour
                                                    1f);
             AudioManager.instance.Play("wallhit");
             //Debug.Log(collision.gameObject.transform.localScale.ToString());
+            health -= 10;
+            healthBar.sethealth(health);
             Destroy(collision.gameObject);
-            health -= 20;
-            healthbar.sethealth(health);
 
         }
     }
