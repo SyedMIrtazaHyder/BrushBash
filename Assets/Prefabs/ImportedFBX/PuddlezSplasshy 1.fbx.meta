@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d96c247f9cac984d825af1d4bcef075
+guid: b4f8dd098370cb04dbb1f2a6672451cb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WalkPB
+      name: FlopFlip
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -4,12 +4,13 @@ using UnityEngine;
 public class WallCollisionDetector : MonoBehaviour
 {
     [SerializeField] private GameObject splash;
-    [SerializeField] private int maxHits = 5;
-    private int hitsTaken;
-
+    [SerializeField] private int maxhealth = 10;
+    private int health;
+    [SerializeField] private HealthBar healthBar;
     private void Start()
     {
-        hitsTaken = 0;
+        health = maxhealth;
+        healthBar.setmaxhealth(maxhealth);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,10 +29,14 @@ public class WallCollisionDetector : MonoBehaviour
             gb.transform.localScale = new Vector3( originalSize.x * 3,
                                                    originalSize.y * 3,
                                                    1f);
+            //Playing Sound Effect
             AudioManager.instance.Play("wallhit");
-            //Debug.Log(collision.gameObject.transform.localScale.ToString());
+            //Decreasing Health of Wall
+            health--;
+            healthBar.sethealth(health);
             Destroy(collision.gameObject);
-
+            if (health == 0)
+                GetComponent<GameManager>().Restart();
         }
     }
 }

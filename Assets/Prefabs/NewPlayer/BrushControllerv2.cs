@@ -12,8 +12,6 @@ public class BrushControllerv2 : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private int killRequirement = 10;
-    [SerializeField] private bool isTop = true;
-    [SerializeField] private float turnSpeed = 2f;
     [SerializeField] private GameObject skidMark;
     [SerializeField] private float skidMarkMultiplier;
     private Vector3 move;
@@ -43,31 +41,15 @@ public class BrushControllerv2 : MonoBehaviour
     {
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
-        {
             playerVelocity.y = 0f;
-        }
 
         Vector2 movement = player.Move.Movement.ReadValue<Vector2>();
         move = new Vector3(movement.x, 0f, movement.y);
         //For top Down
-        if (isTop) { 
-            controller.Move(playerSpeed * Time.deltaTime * move);
-        }
-        //For isometric
-        else
-        {
-            Vector3 skewedInput = matrixMove.MultiplyPoint3x4(move);
-            Quaternion rot = Quaternion.LookRotation(matrixRot.MultiplyPoint3x4(move), Vector3.up);
-
-            controller.Move(skewedInput * Time.deltaTime * playerSpeed);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
-            
-        }
+        controller.Move(playerSpeed * Time.deltaTime * move);
 
         if (move != Vector3.zero)
-        {
             gameObject.transform.forward = move;
-        }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
@@ -78,7 +60,8 @@ public class BrushControllerv2 : MonoBehaviour
         // Check if the collision is with an object tagged as "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Vector3 pointOfContact = collision.GetContact(0).point;
+            //Vector3 pointOfContact = collision.GetContact(0).point;
+            Vector3 pointOfContact = collision.gameObject.transform.position;
             pointOfContact.Set(pointOfContact.x, 0.05f, pointOfContact.z);
             GameObject skid = Instantiate(skidMark, pointOfContact, Quaternion.Euler(-90f, transform.rotation.eulerAngles.y + 270, 0f));
             skid.transform.localScale = transform.localScale * skidMarkMultiplier;
