@@ -849,10 +849,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b58688424fb26a34fbe82fbba2f91b40, type: 2}
   - {fileID: 2100000, guid: 7d2521eec6817ba49856e8e2d22e3c76, type: 2}
   - {fileID: 2100000, guid: 6b374e802a6f75f41b4114c26dd41bfb, type: 2}
-  spawnInterval: 2.5
+  spawnInterval: 1.5
   spawnMesh: {fileID: 657727841}
   divisor: 5
-  enemySpeed: 1
+  enemySpeed: 1.1
 --- !u!114 &657727845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,11 +2115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: playerSpeed
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: killRequirement
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: skidMarkMultiplier
