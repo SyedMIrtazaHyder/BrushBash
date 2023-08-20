@@ -459,7 +459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &290704676
@@ -620,14 +620,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeholderPrefabs:
+  - {fileID: 2836685420874010666, guid: 0f7ff17a3156c43438196cc880407a72, type: 3}
+  - {fileID: 2836685420874010666, guid: 0f7ff17a3156c43438196cc880407a72, type: 3}
+  - {fileID: 2836685420874010666, guid: 0f7ff17a3156c43438196cc880407a72, type: 3}
+  - {fileID: 6409135764491873068, guid: f803b45548d5a3944af2256a7f12b81c, type: 3}
+  - {fileID: 6409135764491873068, guid: f803b45548d5a3944af2256a7f12b81c, type: 3}
+  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
+  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
+  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
   - {fileID: 7019108299268942568, guid: ff1b03bf4c37fde4994fbd1b6b204792, type: 3}
-  - {fileID: 2836685420874010666, guid: 0f7ff17a3156c43438196cc880407a72, type: 3}
-  - {fileID: 2836685420874010666, guid: 0f7ff17a3156c43438196cc880407a72, type: 3}
-  - {fileID: 6409135764491873068, guid: f803b45548d5a3944af2256a7f12b81c, type: 3}
-  - {fileID: 6409135764491873068, guid: f803b45548d5a3944af2256a7f12b81c, type: 3}
-  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
-  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
-  - {fileID: 2906556140308746855, guid: 23e4a110c4ed36549b7a7b1f1176f1d1, type: 3}
   - {fileID: 7019108299268942568, guid: ff1b03bf4c37fde4994fbd1b6b204792, type: 3}
   placeholderMaterials:
   - {fileID: 2100000, guid: 69f0ffaaa9c856748b935b9ff2fa8eaf, type: 2}
@@ -693,7 +694,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8585114, b: 0.78138125, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.75
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -732,7 +733,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1822,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: playerSpeed
-      value: 20
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: killRequirement
