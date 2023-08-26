@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        currentScene += 1;
+        currentScene = (currentScene + 1)%11;
         SceneManager.LoadScene(currentScene%11);
     }
 

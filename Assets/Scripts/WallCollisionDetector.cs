@@ -7,6 +7,8 @@ public class WallCollisionDetector : MonoBehaviour
     [SerializeField] private int maxhealth = 10;
     private int health;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private float mul;
+
     private void Start()
     {
         health = maxhealth;
@@ -21,14 +23,12 @@ public class WallCollisionDetector : MonoBehaviour
             Vector3 originalSize =  splash.transform.localScale;
             GameObject gb = Instantiate(splash, collisionPoint, Quaternion.Euler(0, 180, 0));
 
-            if (collision.gameObject.GetComponentsInChildren<MeshRenderer>().Length > 0)
+           if (collision.gameObject.GetComponentsInChildren<MeshRenderer>().Length > 0)
                 gb.GetComponent<MeshRenderer>().material = collision.gameObject.GetComponentInChildren<MeshRenderer>().material;
             else
                 gb.GetComponent<MeshRenderer>().material = collision.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
 
-            gb.transform.localScale = new Vector3( originalSize.x * 3,
-                                                   originalSize.y * 3,
-                                                   1f);
+            Debug.Log(gb.GetComponentInParent<Transform>().position.ToString());
             //Playing Sound Effect
             AudioManager.instance.Play("wallhit");
             //Decreasing Health of Wall
