@@ -19,6 +19,7 @@ public class BrushControllerv2 : MonoBehaviour
     [SerializeField] private float maxKillTime = 2f;
     [SerializeField] private GameObject VisualHelp;
 
+    private TrailRenderer tr;
     private Material skidMat;
     private float killtime;
     private Vector3 move;
@@ -32,6 +33,7 @@ public class BrushControllerv2 : MonoBehaviour
     {
         player = new Player();
         controller = GetComponent<CharacterController>();
+        tr = GetComponent<TrailRenderer>();
     }
 
     private void OnEnable()
@@ -89,6 +91,7 @@ public class BrushControllerv2 : MonoBehaviour
             skid.transform.localScale = new Vector3(transform.localScale.x * skidMarkX, transform.localScale.y * skidMarkY, 1f);
             skid.GetComponent<Renderer>().material = collision.gameObject.GetComponentInChildren<Renderer>().material;*/
             skidMat = collision.gameObject.GetComponentInChildren<Renderer>().material;
+            tr.material = skidMat;
             killed++;
             killtime = maxKillTime;
         }

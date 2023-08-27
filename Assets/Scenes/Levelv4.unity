@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splash: {fileID: 3789045427410843778, guid: 00ef021c6eb5e054090f94292fc61abf, type: 3}
-  maxhealth: 3
+  maxhealth: 5
   healthBar: {fileID: 1515025962}
   mul: 5
 --- !u!114 &72039975
@@ -834,6 +834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeholderPrefabs:
   - {fileID: 272923600195620769, guid: c74a1e3505c26104283c2b5fffec8642, type: 3}
+  - {fileID: 272923600195620769, guid: c74a1e3505c26104283c2b5fffec8642, type: 3}
+  - {fileID: 6594420976019634921, guid: 8d29183189645fd4f806363497722b17, type: 3}
   placeholderMaterials:
   - {fileID: 2100000, guid: 69f0ffaaa9c856748b935b9ff2fa8eaf, type: 2}
   - {fileID: 2100000, guid: 1570a78e6557a35448f4c1a55d20e614, type: 2}
@@ -848,7 +850,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b58688424fb26a34fbe82fbba2f91b40, type: 2}
   - {fileID: 2100000, guid: 7d2521eec6817ba49856e8e2d22e3c76, type: 2}
   - {fileID: 2100000, guid: 6b374e802a6f75f41b4114c26dd41bfb, type: 2}
-  spawnInterval: 3
+  spawnInterval: 2.5
   spawnMesh: {fileID: 657727841}
   divisor: 5
   enemySpeed: 1
@@ -2211,6 +2213,10 @@ PrefabInstance:
       propertyPath: VisualHelp
       value: 
       objectReference: {fileID: 1020191799}
+    - target: {fileID: 1168280510418933760, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
+      propertyPath: killRequirement
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2722546063842932290, guid: d528fd9cde76db54ba393783b19dc195, type: 3}
       propertyPath: m_Name
       value: Roller Variant
