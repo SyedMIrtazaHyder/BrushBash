@@ -25,7 +25,7 @@ BrushBash is an innovative hyper casual tower defense game developed by Team Gam
 - [**Abdullah Bin Salman**](https://www.linkedin.com/in/abdullah-bin-salman-80873793/)
   - Role: SFX (Sound Effects), Brush Trail Renderer, Health Bar and its Integration
 
-- **Muhammad Zawar**
+- [**Muhammad Zawar**](https://www.linkedin.com/in/zawar-ahmed-farooqi-63659a234)
   - Role: Skybox, Camera and Lighting
 
 - **Irtaza Hyder**
